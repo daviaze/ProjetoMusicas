@@ -13,3 +13,20 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.new-button {
+    @extend
+    .btn,
+    .btn-outline-info
+};
+
+.item-list {
+  @extend 
+  .card, 
+  .bg-info,
+  .p-1,
+  .pl-3,
+  .mt-1,
+  .text-decoration-none,
+  .text-light
+}
