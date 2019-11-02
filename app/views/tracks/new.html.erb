@@ -1,5 +1,10 @@
 <h3> New Track</h3>
 <a href="/tracks"><button class="btn btn-outline-info"> Back </button></a>
+<%@track.errors.full_messages.each do |error|%>
+    <div class="alert alert-danger" role="alert">
+        <%=error%>
+    </div>
+<%end%>
 <%= form_for @track do |f| %>
 Name:         <%= f.text_field :name %>
 Album:        <%= f.select :album_id ,options_for_select(@albums.collect{ |a| [a.title, a.id] })%> 
