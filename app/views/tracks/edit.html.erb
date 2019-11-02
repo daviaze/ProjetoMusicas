@@ -1,4 +1,9 @@
 <h1>Edit Track</h1>
+<%@track.errors.full_messages.each do |error|%>
+    <div class= "alert alert-danger" role="alert">
+        <%=error%>
+    </div>
+<%end%>
 <%= form_for @track, :url =>{:action => "update", :id =>@track} do |f| %>
     <p>Name:         <%= f.text_field 'name' %></p>
     <p>Album:        <%= f.select :album_id ,options_for_select(@albums.collect{ |a| [a.title, a.id] })%>
