@@ -1,3 +1,9 @@
+<% @artist.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+<% end %>
+
 <h1>Edit Artist</h1>
 
 <%= form_for @artist, :url =>{:action => "update", :id =>@artist} do |f| %>
