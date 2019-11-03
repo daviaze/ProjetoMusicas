@@ -29,4 +29,13 @@
   .mt-1,
   .text-decoration-none,
   .text-light
+};
+
+.artist-card{
+  height: 12rem;
+  @extend
+  .card,
+  .col-3,
+  .d-inline-flex,
+  .m-2
 }
