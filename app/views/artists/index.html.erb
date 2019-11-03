@@ -1,4 +1,9 @@
 <h3> All Artists </h3>
+<%= form_tag("/artists", method: "get") do %>
+  <%= label_tag(:name, "Filter:") %>
+  <%= text_field_tag(:name, params['name']) %>
+  <%= submit_tag("Submit") %>
+<% end %>
 <%=link_to "Create artist", new_artist_path ,
     class:"new-button"%>
 <% @artists.each do |artist|%>
