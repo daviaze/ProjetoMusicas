@@ -1,19 +1,62 @@
-<h1>Edit Track</h1>
-<%@track.errors.full_messages.each do |error|%>
-    <div class= "alert alert-danger" role="alert">
+<h1 class="cor-texto text-center display-4">Edit Track</h1>
+<div class = container>
+ <a href="/tracks"><button class="btn btn-primary col-3 mb-3"> Back </button></a>
+ <%@track.errors.full_messages.each do |error|%>
+    <div class= "alert alert-danger col-5" role="alert">
         <%=error%>
     </div>
-<%end%>
-<%= form_for @track, :url =>{:action => "update", :id =>@track} do |f| %>
-    <p>Name:         <%= f.text_field 'name' %></p>
-    <p>Album:        <%= f.select :album_id ,options_for_select(@albums.collect{ |a| [a.title, a.id] })%>
-    <p>Media Type:   <%= f.select :media_type_id ,options_for_select(@mediatypes.collect{ |a| [a.name, a.id] })%>
-    <p>genre_id:     <%= f.select :genre_id ,options_for_select(@genres.collect{ |a| [a.name, a.id] })%>
-    <p>Composer:     <%= f.text_field 'composer' %></p>
-    <p>Milliseconds: <%= f.text_field 'milliseconds' %></p>
-    <p>Bytes:        <%= f.text_field 'bytes' %></p>
-    <p>Unit Price:   <%= f.text_field 'unit_price' %></p>
-    <%= f.submit "Save changes" %>
+ <%end%>
+ <%= form_for @track, :url =>{:action => "update", :id =>@track} do |f| %>
+ <div class="card text-white bg-secondary list-group-item">
+        <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Name</label>
+            </div>
+            <%= f.text_field :name, placeholder:"Name",class:"form-control" %>
+        </div>
+        <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Album</label>
+            </div>
+              <%= f.select :album_id ,options_for_select(@albums.collect{ |a| [a.title, a.id] }),{},{class:"form-control"}%> 
+        </div>
+        <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Media Type</label>
+            </div>
+            <%= f.select :media_type_id ,options_for_select(@mediatypes.collect{ |a| [a.name, a.id] }),{},{class:"form-control"}%>
+        </div>
+         <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Genero</label>
+            </div>
+            <%= f.select :genre_id ,options_for_select(@genres.collect{ |a| [a.name, a.id] }),{},{class:"form-control"}%>
+        </div>
+         <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Composer</label>
+            </div>
+            <%= f.text_field :composer,placeholder:"Composer", class:"form-control" %>
+        </div>
+        <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Milliseconds</label>
+            </div>
+            <%= f.text_field :milliseconds, placeholder:"Milliseconds", class:"form-control" %>
+        </div>
+         <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Bytes</label>
+            </div>
+            <%= f.text_field :bytes, placeholder:"Bytes", class:"form-control" %>
+        </div>
+         <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Unit Price</label>
+            </div>
+            <%= f.text_field :unit_price, class:"form-control", placeholder:"Bytes" %>
+        </div>
+            <div class="col-6">
+              <%= f.submit 'Save', class:"btn btn-primary col-5 mt-1" %>
+            </div>
 <% end %>
-
-<%= link_to 'Back', :back  %> 
