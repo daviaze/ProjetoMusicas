@@ -1,16 +1,27 @@
-<h3>Showing Track</h3>
-<a href="../"><button>Back</button></a>
-<fieldset>
-    <b> ID: </b><%= @track.id %> <br>
-    <b> Name: </b><%= @track.name %> <br>
-    <b> Album: </b><%= @track.album_id %> <br>
-    <b> Media Type: </b><%= @track.media_type_id %> <br>
-    <b> Genre: </b><%= @track.genre_id %> <br>
-    <b> Composer: </b><%= @track.composer %> <br>
-    <b> milliseconds: </b><%= @track.milliseconds %> <br>
-    <b> bytes: </b><%= @track.bytes %> <br>
-    <b> Unit Price: </b><%= @track.unit_price %> <br>
-    <b> Created at: </b><%= @track.created_at %><br>
-    <b> Updated at: </b><%= @track.updated_at %><br>
-    <br>    
-</fieldset>
+<div class="fundo">
+    <br><br><h3 class="cor-texto text-center display-4">Showing Track</h3>
+    <div class="container">
+        <div class="row">    
+            <div class="form-group col-md-6">
+                <a href="/tracks"><button class="btn btn-primary col-6">Back</button></a>
+            </div>
+            <div class="form-group col-md-6 d-flex justify-content-end">
+                <%= link_to  "EDITAR", edit_track_path, class:"btn btn-primary col-6" %>
+            </div>
+        </div>
+        <fieldset class="card text-white bg-secondary list-group-item mb-1">
+            <b> ID: </b><%= @track.id %> <br>
+            <b> Name: </b><%= @track.name %> <br>
+            <b> Album: </b><%= @track.album_id %> <br>
+            <b> Media Type: </b><%= @track.media_type_id %> <br>
+            <b> Genre: </b><%= @track.genre_id %> <br>
+            <b> Composer: </b><%= @track.composer %> <br>
+            <b> milliseconds: </b><%= @track.milliseconds %> <br>
+            <b> bytes: </b><%= @track.bytes %> <br>
+            <b> Unit Price: </b><%= @track.unit_price %> <br>
+            <b> Created at: </b><%= @track.created_at %><br>
+            <b> Updated at: </b><%= @track.updated_at %><br>
+            <br>    
+        </fieldset>
+    </div>
+</div>

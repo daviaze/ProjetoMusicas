@@ -13,3 +13,16 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+font-face {
+    font-family: "Montserrat";
+    src: url(https://fonts.google.com/specimen/Montserrat) format("truetype");
+}
+.fundo{
+    background-color: #2C2C32
+}
+.cor-texto{
+    color:gainsboro;
+}
+.retira-link a:link{
+    text-decoration-line: none;
+}
