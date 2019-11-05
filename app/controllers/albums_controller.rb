@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
     def index
-        @albums = Album.all
+      @albums = Album.filtrar(params['title'])
       end
     
       def show
@@ -8,10 +8,12 @@ class AlbumsController < ApplicationController
       end
 
       def new 
+        @artists = Artist.all
         @album = Album.new
       end
     
       def create
+        @artists = Artist.all
         @album = Album.new(album_params)
         if @album.save
           redirect_to @album
@@ -21,10 +23,12 @@ class AlbumsController < ApplicationController
       end
 
     def edit
+      @artists = Artist.all
         @album = Album.find(params[:id])
     end
 
     def update
+      @artists = Artist.all
         @album = Album.find(params[:id])
    
         if @album.update_attributes(album_params)
