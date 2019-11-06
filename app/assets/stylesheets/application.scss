@@ -13,6 +13,34 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+
+.new-button {
+    @extend
+    .btn,
+    .btn-outline-info
+};
+
+.item-list {
+  @extend 
+  .card, 
+  .bg-info,
+  .p-1,
+  .pl-3,
+  .mt-1,
+  .text-decoration-none,
+  .text-light
+};
+
+.artist-card{
+  height: 12rem;
+  @extend
+  .card,
+  .col-3,
+  .d-inline-flex,
+  .m-2
+}
+
 font-face {
     font-family: "Montserrat";
     src: url(https://fonts.google.com/specimen/Montserrat) format("truetype");
@@ -26,3 +54,4 @@ font-face {
 .retira-link a:link{
     text-decoration-line: none;
 }
+

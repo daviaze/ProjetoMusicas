@@ -1,3 +1,9 @@
+<% @artist.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+<% end %>
+
 <h3> New Artist</h3>
 <a href="../"><button > Back </button></a>
 <%= form_for @artist do |f| %>
