@@ -2,7 +2,7 @@
 <%= form_for @album do |f| %>
     
     <%= f.text_field :title %>
-    <%= f.text_field :artist_id %>
+    <%= f.text_field :artist_id , :value => params[:artist_id] %>
 
     <%= f.submit 'Save' %>
 <% end %>

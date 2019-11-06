@@ -33,6 +33,6 @@
     <%end%>
     <div class="artist-card">
         <span class="mt-2 small font-weight-bold">CREATE NEW ALBUM</span>
-        <%= link_to '+', new_album_path , class:"btn btn-outline-dark mt-5 w-25 mx-auto rounded-pill" %>
+        <%= link_to '+', new_album_path(:artist_id => @artist.id), class:"btn btn-outline-dark mt-5 w-25 mx-auto rounded-pill" %>
     </div>
 </div>
