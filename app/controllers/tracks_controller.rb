@@ -1,26 +1,38 @@
 class TracksController < ApplicationController
-  def index
-      @tracks = Track.all
-  end
-  def show
-    @track = Track.find(params[:id])
-  end
-  def new 
-    @track = Track.new
-  end
-  def create
-    @track = Track.new(track_params)
-    if @track.save
-      redirect_to @track
-    else
-      render :new
+    def index
+      @tracks = Track.filtrar(params['name'])
     end
+    def show
+      @track = Track.find(params[:id])
+    end
+    def new 
+      @track = Track.new
+      @mediatypes = MediaType.all
+      @albums = Album.all
+      @genres = Genre.all
+    end
+    def create
+      @track = Track.new(track_params)
+      @mediatypes = MediaType.all
+      @albums = Album.all
+      @genres = Genre.all
+      if @track.save
+        redirect_to @track
+      else
+        render :new
+      end
   end
     def edit
       @track = Track.find(params[:id])
+      @mediatypes = MediaType.all
+      @albums = Album.all
+      @genres = Genre.all
      end
   def update
        @track = Track.find(params[:id])
+       @mediatypes = MediaType.all
+       @albums = Album.all
+       @genres = Genre.all
     if @track.update_attributes(track_params)
        redirect_to @track
     else

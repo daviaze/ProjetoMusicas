@@ -1,9 +1,40 @@
-<h3> New Album</h3>
-<%= form_for @album do |f| %>
-    
-    <%= f.text_field :title %>
-    <%= f.text_field :artist_id , :value => params[:artist_id] %>
+<div class="container">
+<br>
+<br>
+<br>
+<br>
+<h3 class="text-center display-4 text-white"> New Album</h3>
 
-    <%= f.submit 'Save' %>
+<b class="text-dark"> <%= link_to "Back", "/albums", class:"btn btn-primary col-3 mb-3" %> </b>
+
+
+<% @album.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger col-5" role="alert">
+        <%= error %>
+    </div>
 <% end %>
-<b class="text-dark"> <%= link_to "Voltar", "/albums" %> </b>
+
+<%= form_for @album do |f| %>
+    <div class="card text-white bg-secondary list-group-item">
+        <div class=" input-group mb-2 col-6">
+            <div class="input-group-prepend">
+                <label class="input-group-text" style="width:120px">Title</label>
+          </div>
+    <%= f.text_field :title, class:"form-control", placeholder:"Title" %>
+</div>
+
+<div class=" input-group mb-2 col-6">
+    <div class="input-group-prepend">
+        <label class="input-group-text" style="width:120px">Artist</label>
+    </div>
+    <%= f.select :artist_id ,options_for_select(@artists.collect{ |a| [a.name, a.id] }),{}, {class:"form-control"}%>
+    </div>
+
+<div class="col-6">
+    <%= f.submit 'Save', class:"btn btn-primary col-5 mt-1" %>
+</div>
+        <% end %>
+    </div>
+</div>
+
+
