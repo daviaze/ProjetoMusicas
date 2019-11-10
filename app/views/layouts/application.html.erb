@@ -37,6 +37,9 @@
   </nav>
 
   <div class="container mt-5 mb-2">
+    <% unless current_page?(root_path)%>
+      <br><br>
+    <% end %>
     <%= yield %>
   </div>
 </body>
