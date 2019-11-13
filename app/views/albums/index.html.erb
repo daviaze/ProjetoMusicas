@@ -1,34 +1,30 @@
-<div class="container">
-<br>
-<br>
-<br>
-<br>
 <h3 class="text-center display-4 text-white"> All Albums </h3>
 
-<div class="row">
-  <div class="form-group col-md-6 "> 
-    <%=link_to "Create Album", new_album_path, class:"btn btn-primary col-6" %>
-</div> 
-  <div class="form-group col-md-6 ">
-    <%= form_tag("/albums", method: "get") do %>
-      <div class="input-groupmb-1 d-flex justify-content-end">
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-6 ">
+      <%=link_to "Create Album", new_album_path, class:"btn btn-primary col-6" %>
+    </div>
+    <div class="form-group col-md-6 ">
+      <%= form_tag("/albums", method: "get") do %>
+      <div class="input-group mb-1 d-flex justify-content-end">
         <div class="input-group-prepend">
-         <label class="input-group-text">Filter</label>
-     </div>
-    <%= text_field_tag(:title, params['title'], class: "form-control col-4") %>
-      <div class="input-group-prepend">
-       <%= submit_tag("Submit", class: 'btn btn-primary') %>
+          <label class="input-group-text">Filter</label>
+        </div>
+        <%= text_field_tag(:title, params['title'], class: "form-control col-4") %>
+        <div class="input-group-prepend">
+          <%= submit_tag("Submit", class: 'btn btn-primary') %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<% end %>
+  <% end %>
 
-<div class="list-group-flush linha", role="list">
-  <% @albums.each do |album| %>
+  <div class="list-group-flush linha", role="list">
+    <% @albums.each do |album| %>
     <div class="retira-link">
-        <%= link_to album.title, album, class:"card text-white bg-secondary list-group-item mb-1"  %> 
-     </div>
+      <%= link_to album.title, album, class:"card text-white bg-secondary list-group-item mb-1"  %>
+    </div>
     <% end %>
   </div>
 </div>

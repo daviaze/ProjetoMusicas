@@ -1,12 +1,32 @@
-<h3> All Artists </h3>
-<%= form_tag("/artists", method: "get") do %>
-  <%= label_tag(:name, "Filter:") %>
-  <%= text_field_tag(:name, params['name']) %>
-  <%= submit_tag("Submit") %>
-<% end %>
-<%=link_to "Create artist", new_artist_path ,
-    class:"new-button"%>
-<% @artists.each do |artist|%>
-    <%= link_to artist.name , artist, 
-    class:"item-list"%> 
-<% end %>
+<h3 class="cor-texto text-center display-4"> All Artist </h3>
+
+<div class=container>
+  <div class="row">
+    <div class="form-group col-6 ">
+      <%=link_to "Create Artist", new_artist_path, class:"btn btn-primary col-6"%>
+    </div>
+    <div class="form-group col-6 ">
+      <%= form_tag("/artists", method: "get") do %>
+      <div class="input-group mb-1 d-flex justify-content-end">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Filter</label>
+        </div>
+        <%= text_field_tag(:name, params['name'], class: "form-control col-4") %>
+        <div class="input-group-prepend">
+          <%= submit_tag("Submit", class: 'btn btn-primary') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="list-group list-group-flush linha">
+    <%@artists.each do |artist|%>
+    <div class="retira-link">
+      <%= link_to artist.name, artist, class:"card text-white bg-secondary list-group-item mb-1"%>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+

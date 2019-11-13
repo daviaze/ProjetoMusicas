@@ -1,38 +1,44 @@
-<br>
-
-<div class="col-9 mx-auto">
-    <div class="text-center">
-        <h3><%= @artist.name %>'s Albums <span class="badge bg-info text-dark"><%= @albums.count %></span></h3>
-        <div class="btn-group col-12 p-0">
-            <%= link_to  "EDIT ARTIST", edit_artist_path, class: "new-button col-6" %>
-            <%= link_to  "BACK", '../', class:"new-button col-6" %>
+<div class="col-9 mx-auto text-center">
+    <div class="dropdown mt-3 float-left">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <b><%= @albums.count %></b>
+        </button>
+        <div class="dropdown-menu">
+            <small class="dropdown-item"><b>CREATED AT: </b><%= format(@artist.created_at) %></small>
+            <small class="dropdown-item"><b>UPDATED AT: </b><%= format(@artist.updated_at) %></small>
         </div>
+    </div>
+    <h3 class="cor-texto display-4"><%= @artist.name %>'s Albums
+    </h3>
+    <div class="btn-group col-12 p-0">
+        <%= link_to  "Edit Artist", edit_artist_path, class: "new-button col-6" %>
+        <button onclick="history.back()" class="new-button col-6"> Back </button>
     </div>
 </div>
 
 <div class="mx-auto text-center mt-2">
     <% @albums.each do |album|%>
-        <div class="artist-card" style="height: 12rem;">
-            <span class="small mt-2 text-center font-weight-bold"><%= album.title.upcase %></span>
-            <div class="d-block text-left mt-auto">
-                <span class="small text-muted font-weight-bold">TRACKS: </span>
-                <span class=""><%= Track.where(album_id: album.id).count %></span>
-                <br>
-                <span class="small text-muted font-weight-bold">CREATED AT:</span>
-                <span class=""><%= format(album.created_at) %></span>
-                <br>
-                <span class="small text-muted font-weight-bold">UPDATED AT:</span>
-                <span class=""><%= format(album.updated_at) %></span>
-            </div>
-
-            <div class="btn-group mt-auto mb-2 ">
-                <a href="../albums/<%= album.id %>/edit" class="col-6 btn btn-secondary ">Edit</a>
-                <%= link_to 'See more', album ,class:"col-6 btn btn-secondary"%>
-            </div>
+    <div class="artist-card" style="height: 12rem;">
+        <span class="small mt-2 text-center font-weight-bold"><%= album.title.upcase %></span>
+        <div class="d-block text-left mt-auto">
+            <span class="small text-muted font-weight-bold">TRACKS: </span>
+            <span class=""><%= Track.where(album_id: album.id).count %></span>
+            <br>
+            <span class="small text-muted font-weight-bold">CREATED AT:</span>
+            <span class=""><%= format(album.created_at) %></span>
+            <br>
+            <span class="small text-muted font-weight-bold">UPDATED AT:</span>
+            <span class=""><%= format(album.updated_at) %></span>
         </div>
+
+        <div class="btn-group mt-auto mb-2 ">
+            <a href="../albums/<%= album.id %>/edit" class="col-6 btn btn-primary ">Edit</a>
+            <%= link_to 'See more', album ,class:"col-6 btn btn-primary"%>
+        </div>
+    </div>
     <%end%>
-    <div class="artist-card">
+    <div class="artist-card ">
         <span class="mt-2 small font-weight-bold">CREATE NEW ALBUM</span>
-        <%= link_to '+', new_album_path(:artist_id => @artist.id), class:"btn btn-outline-dark mt-5 w-25 mx-auto rounded-pill" %>
+        <%= link_to '+', new_album_path(:artist_id => @artist.id), class:"btn-outline-dark p-3 mx-auto mt-5 w-50 rounded-pill btn" %>
     </div>
 </div>
