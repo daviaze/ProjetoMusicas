@@ -1,29 +1,81 @@
 <div class="container">
-<br> 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-<h3 class="cor-texto text-center display-4 text-white"> Showing Album </h3>
+  <h3 class="cor-texto text-center display-4 text-white"> Showing Album </h3>
 
-<div class="row">
-  <div class="form-group col-md-6">
-    <b class="text-dark"> <%= link_to "Back", "/albums", class:"btn btn-primary col-6" %> </b>
-</div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <b class="text-dark"> <%= link_to "Back", albums_path, class:"btn btn-primary col-6" %> </b>
+    </div>
 
-<div class="form-group col-md-6 d-flex justify-content-end">
-    <%= link_to  "Edit", edit_album_path, class:"btn btn-primary col-6"%>
+    <div class="form-group col-md-6 d-flex justify-content-end">
+      <%= link_to  "Edit", edit_album_path, class:"btn btn-primary col-6"%>
+    </div>
   </div>
-</div>
 
-<fieldset class="card text-white bg-secondary list-group-item mb-1">
-  <div class="card-body text-justify">
-    <h5 class="card-title"><%= @album.title %></h5>
-    <h5 class="card-title">Artist : <%= @album.artist.name %></h5>
-    <p class="card-text"><fieldset>
-    <b> ID: </b> <%= @album.id %> <br>
-    <b> Created at: </b> <%= (@album.created_at) %> <br>
-    <b> Updated at: </b> <%= (@album.updated_at) %> <br>
-    </fieldset>
-</div>
+  <fieldset class="card text-white bg-secondary list-group-item mb-1">
+    <div class="card-body text-justify">
+
+
+      <h5 class="card-title">Artist : <%= @album.artist.name %></h5>
+      <p class="card-text">
+
+          <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Title:</label>
+            </div>
+            <%= text_field(:album, :title , class: "form-control",:readonly => true) %>
+          </div>
+
+          <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Artist:</label>
+            </div>
+            <%= text_field(:artist, :name, class: "form-control",:readonly => true) %>
+          </div>
+
+          <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">ID:</label>
+            </div>
+            <%= text_field(:album, :id , class: "form-control",:readonly => true) %>
+          </div>
+
+          <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Created_at:</label>
+            </div>
+            <%= text_field(:album, :created_at , class: "form-control",:readonly => true) %>
+          </div>
+
+          <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="width:120px">Updated_atD:</label>
+            </div>
+            <%= text_field(:album, :updated_at , class: "form-control",:readonly => true) %>
+          </div>
+          <br>
+
+          <% @tracks.each do |track| %>
+      <button class="btn btn-dark col-12" type="button" data-toggle="collapse" data-target="#id<%= track.id %>">
+        <%= track.name %>
+      </button>
+      <div class="collapse" id="id<%= track.id %>">
+        <div class="card card-body text-dark">
+          MILISSECONDS: <%= track.milliseconds %> <br>
+          BYTES: <%= track.bytes %> <br>
+          GENRE: <%= track.genre.name %> <br>
+          MEDIATYPE: <%= track.media_type.name %> <br>
+          COMPOSER: <%= track.composer %> <br>
+          UNIT PRICE: <%= track.unit_price %> <br>
+        </div>
+      </div>
+      <p></p>
+  <% end %>
+
+        </fieldset>
+    </div>
 </div>

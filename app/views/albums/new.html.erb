@@ -5,7 +5,7 @@
 <br>
 <h3 class="text-center display-4 text-white"> New Album</h3>
 
-<b class="text-dark"> <%= link_to "Back", "/albums", class:"btn btn-primary col-3 mb-3" %> </b>
+<b class="text-dark"> <%= link_to "Back", albums_path, class:"btn btn-primary col-3 mb-3" %> </b>
 
 <% @album.errors.full_messages.each do |error| %>
     <div class="alert alert-danger col-5" role="alert">
@@ -15,22 +15,22 @@
 
 <%= form_for @album do |f| %>
     <div class="card text-white bg-secondary list-group-item">
-        <div class=" input-group mb-2 col-6">
+        <div class=" input-group mb-2 col-6 mx-auto">
             <div class="input-group-prepend">
                 <label class="input-group-text" style="width:120px">Title</label>
           </div>
     <%= f.text_field :title, class:"form-control", placeholder:"Title" %>
 </div>
 
-<div class=" input-group mb-2 col-6">
+<div class=" input-group mb-2 col-6 mx-auto">
     <div class="input-group-prepend">
         <label class="input-group-text" style="width:120px">Artist</label>
     </div>
-    <%= f.select :artist_id ,options_for_select(@artists.collect{ |a| [a.name, a.id] }),{}, {class:"form-control"}%>
+    <%= f.select :artist_id ,options_for_select(@artists.collect{ |a| [a.name, a.id] }),{}, {class:"form-control custom-select"}%>
     </div>
 
-<div class="col-6">
-    <%= f.submit 'Save', class:"btn btn-primary col-5 mt-1" %>
+<div class="col-6 mx-auto">
+    <%= f.submit 'Save', class:"btn btn-primary col-12 mt-1" %>
 </div>
         <% end %>
     </div>
