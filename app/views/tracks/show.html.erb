@@ -1,16 +1,82 @@
-<h3>Showing Track</h3>
-<a href="../"><button>Back</button></a>
-<fieldset>
-    <b> ID: </b><%= @track.id %> <br>
-    <b> Name: </b><%= @track.name %> <br>
-    <b> Album: </b><%= @track.album_id %> <br>
-    <b> Media Type: </b><%= @track.media_type_id %> <br>
-    <b> Genre: </b><%= @track.genre_id %> <br>
-    <b> Composer: </b><%= @track.composer %> <br>
-    <b> milliseconds: </b><%= @track.milliseconds %> <br>
-    <b> bytes: </b><%= @track.bytes %> <br>
-    <b> Unit Price: </b><%= @track.unit_price %> <br>
-    <b> Created at: </b><%= @track.created_at %><br>
-    <b> Updated at: </b><%= @track.updated_at %><br>
-    <br>    
-</fieldset>
+<div class="fundo">
+    <h3 class="cor-texto text-center display-4">Showing Track</h3>
+    <div class="container">
+        <div class="row">    
+            <div class="form-group col-md-6">
+                <%= link_to  "Back", tracks_path , class:"btn btn-primary col-6"%>
+            </div>
+            <div class="form-group col-md-6 d-flex justify-content-end">
+                <%= link_to  "EDITAR", edit_track_path, class:"btn btn-primary col-6" %>
+            </div>
+        </div>
+        <fieldset class="card text-white bg-secondary list-group-item mb-1">
+           <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">ID</label>
+                    </div>
+                    <%= text_field(:track, :id , class: "form-control",:readonly => true) %>
+                </div>
+
+                <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Name</label>
+                    </div>
+                    <%= text_field(:track, :name , class: "form-control",:readonly => true) %>
+                </div>  
+                <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Album</label>
+                    </div>
+                    <%= text_field(:track, :album_id , class: "form-control",:readonly => true) %>
+                </div> 
+                <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Media Type</label>
+                    </div>
+                    <%= text_field(:track, :media_type_id , class: "form-control",:readonly => true) %>
+                </div> 
+                <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Genre</label>
+                    </div>
+                    <%= text_field(:track, :genre_id , class: "form-control",:readonly => true) %>
+                </div> 
+                <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Composer</label>
+                    </div>
+                    <%= text_field(:track, :composer , class: "form-control",:readonly => true) %>
+                </div>
+                 <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Milliseconds</label>
+                    </div>
+                    <%= text_field(:track, :milliseconds , class: "form-control",:readonly => true) %>
+                </div>
+                  <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Bytes</label>
+                    </div>
+                    <%= text_field(:track, :bytes , class: "form-control",:readonly => true) %>
+                </div>
+                 <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Unit Price</label>
+                    </div>
+                    <%= text_field(:track, :unit_price , class: "form-control",:readonly => true) %>
+                </div>
+                 <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Created At</label>
+                    </div>
+                    <%= text_field(:track, :created_at , class: "form-control",:readonly => true) %>
+                </div>
+                 <div class=" input-group mb-2 col-6 mx-auto">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" style="width:120px">Updated At</label>
+                    </div>
+                    <%= text_field(:track, :updated_at , class: "form-control",:readonly => true) %>
+                </div>         
+            </div>
+        </fieldset>
+    </div>

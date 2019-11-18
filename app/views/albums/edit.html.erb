@@ -1,26 +1,23 @@
 <div class="container">
-<br>
-<br>
-<br>
-<br>
-<h1 class="text-center display-4 text-white">Edit Album</h1>
+    <h3 class="text-center display-4 text-white">Edit Album</h3>
+
 
 <button onclick="history.back()" class="btn btn-primary col-3 mb-3"> Back </button> 
 
-<% @album.errors.full_messages.each do |error| %>
+
+    <% @album.errors.full_messages.each do |error| %>
     <div class="alert alert-danger" role="alert">
         <%= error %>
     </div>
-<% end %>
+    <% end %>
 
-<%= form_for @album, :url =>{:action => "update", :id =>@album} do |f| %>
+    <%= form_for @album, :url =>{:action => "update", :id =>@album} do |f| %>
     <div class="card text-white bg-secondary list-group-item">
     <div class=" input-group mb-2 col-6 mx-auto">
         <div class="input-group-prepend">
           <label class="input-group-text" style="width:120px">Title</label>
         </div>
-    <%= f.text_field 'title', class:"form-control" %></p>
-    </div>
+
 
     <div class=" input-group mb-2 col-6 mx-auto">
         <div class="input-group-prepend">
@@ -32,6 +29,6 @@
 
     <div class="col-6 mx-auto">
         <%= f.submit "Save changes", class:"btn btn-primary col-12 mt-1" %>
+
     </div>
-</div>
-<% end %>
+    <% end %>

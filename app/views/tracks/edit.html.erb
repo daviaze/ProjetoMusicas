@@ -1,13 +1,13 @@
-<h3 class="cor-texto text-center display-4">New Track</h3>
-<div class = "mx-auto container">
+<h1 class="cor-texto text-center display-4">Edit Track</h1>
+<div class = "container">
   <button onclick="history.back()" class="btn btn-primary col-3 mb-3"> Back </button>
-    <%@track.errors.full_messages.each do |error|%>
-        <div class="alert alert-danger col-5" role="alert">
-            <%=error%>
-        </div>
-    <%end%>
-    <%= form_for @track do |f| %>
-    <div class="card text-white bg-secondary list-group-item">
+  <%@track.errors.full_messages.each do |error|%>
+      <div class= "alert alert-danger col-5" role="alert">
+          <%=error%>
+      </div>
+  <%end%>
+  <%= form_for @track, :url =>{:action => "update", :id =>@track} do |f|%>
+  <div class=" card text-white bg-secondary list-group-item">
         <div class=" input-group mb-2 col-6 mx-auto">
             <div class="input-group-prepend">
               <label class="input-group-text" style="width:120px">Name</label>
@@ -56,9 +56,8 @@
             </div>
             <%= f.text_field :unit_price, class:"form-control", placeholder:"Bytes" %>
         </div>
-            <div class=" col-6 mx-auto">
-                <%= f.submit 'Save', class:"btn btn-primary col-12 mt-1"%>
+            <div class="col-6 mx-auto">
+              <%= f.submit 'Save', class:"btn btn-primary col-12 mt-1" %>
             </div>
-    </div>
 </div>
-    <% end %>
+<% end %>

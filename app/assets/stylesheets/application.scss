@@ -13,3 +13,34 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif !important;
+}
+.new-button {
+    @extend
+    .btn,
+    .btn-outline-primary
+};
+
+.artist-card{
+  height: 12rem;
+  @extend
+  .card,
+  .col-3,
+  .d-inline-flex,
+  .m-2,
+  .bg-light
+;}
+
+body{
+    background-color: #2C2C32
+}
+.cor-texto{
+    color:gainsboro;
+}
+.retira-link a:link{
+    text-decoration-line: none;
+}
+
