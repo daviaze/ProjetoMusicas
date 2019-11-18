@@ -1,7 +1,9 @@
 <div class="container">
     <h3 class="text-center display-4 text-white">Edit Album</h3>
 
-    <%= link_to 'Back', '/albums', class:"btn btn-primary col-3 mb-3"  %>
+
+<button onclick="history.back()" class="btn btn-primary col-3 mb-3"> Back </button> 
+
 
     <% @album.errors.full_messages.each do |error| %>
     <div class="alert alert-danger" role="alert">
@@ -11,23 +13,22 @@
 
     <%= form_for @album, :url =>{:action => "update", :id =>@album} do |f| %>
     <div class="card text-white bg-secondary list-group-item">
-        <div class=" input-group mb-2 col-6">
-            <div class="input-group-prepend">
-                <label class="input-group-text" style="width:120px">Title</label>
-            </div>
-            <%= f.text_field 'title', class:"form-control" %></p>
+    <div class=" input-group mb-2 col-6 mx-auto">
+        <div class="input-group-prepend">
+          <label class="input-group-text" style="width:120px">Title</label>
         </div>
 
-        <div class=" input-group mb-2 col-6">
-            <div class="input-group-prepend">
-                <label class="input-group-text" style="width:120px">Artist</label>
-            </div>
-            <%= f.select :artist_id ,options_for_select(
-        @artists.collect{ |a| [a.name, a.id] }, :selected => f.object.artist_id),{}, {class:"form-control"}%>
-        </div>
 
-        <div class="col-6">
-            <%= f.submit "Save changes", class:"btn btn-primary col-5 mt-1" %>
-        </div>
+    <div class=" input-group mb-2 col-6 mx-auto">
+        <div class="input-group-prepend">
+            <label class="input-group-text" style="width:120px">Artist</label>
+    </div>
+    <%= f.select :artist_id ,options_for_select(
+        @artists.collect{ |a| [a.name, a.id] }, :selected => f.object.artist_id),{}, {class:"form-control custom-select"}%>
+    </div>
+
+    <div class="col-6 mx-auto">
+        <%= f.submit "Save changes", class:"btn btn-primary col-12 mt-1" %>
+
     </div>
     <% end %>

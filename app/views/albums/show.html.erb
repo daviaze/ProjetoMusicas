@@ -13,13 +13,20 @@
 </div>
 
 <fieldset class="card text-white bg-secondary list-group-item mb-1">
-  <div class="card-body text-justify">
-    <h5 class="card-title"><%= @album.title %></h5>
-    <h5 class="card-title">Artist : <%= @album.artist.name %></h5>
-    <p class="card-text"><fieldset>
-    <b> ID: </b> <%= @album.id %> <br>
-    <b> Created at: </b> <%= (@album.created_at) %> <br>
-    <b> Updated at: </b> <%= (@album.updated_at) %> <br>
-    </fieldset>
-</div>
-</div>
+    <% @tracks.each do |track| %>
+      <button class="btn btn-dark col-12" type="button" data-toggle="collapse" data-target="#id<%= track.id %>">
+        <%= track.name %>
+      </button>
+      <div class="collapse" id="id<%= track.id %>">
+        <div class="card card-body text-dark">
+          MILISSECONDS: <%= track.milliseconds %> <br>
+          BYTES: <%= track.bytes %> <br>
+          GENRE: <%= track.genre.name %> <br>
+          MEDIATYPE: <%= track.media_type.name %> <br>
+          COMPOSER: <%= track.composer %> <br>
+          UNIT PRICE: <%= track.unit_price %> <br>
+        </div>
+      </div>
+      <p></p>
+  <% end %>
+</fieldset>
