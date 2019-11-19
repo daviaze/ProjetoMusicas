@@ -1,6 +1,7 @@
 <div class="container">
 
-<h3 class="cor-texto text-center display-4 text-white"> Showing Album </h3>
+<h3 class="cor-texto text-center display-4 text-white"> <%= @album.title %> </h3>
+<h5 class="cor-texto text-center text-white"> BY: <%= @album.artist.name %> </h5>
 
 <div class="row">
   <div class="form-group col-md-6">
@@ -11,7 +12,6 @@
     <%= link_to  "Edit", edit_album_path, class:"btn btn-primary col-6"%>
   </div>
 </div>
-
 <fieldset class="card text-white bg-secondary list-group-item mb-1">
     <% @tracks.each do |track| %>
       <button class="btn btn-dark col-12" type="button" data-toggle="collapse" data-target="#id<%= track.id %>">

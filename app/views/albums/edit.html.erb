@@ -17,18 +17,19 @@
         <div class="input-group-prepend">
           <label class="input-group-text" style="width:120px">Title</label>
         </div>
-
-
-    <div class=" input-group mb-2 col-6 mx-auto">
-        <div class="input-group-prepend">
-            <label class="input-group-text" style="width:120px">Artist</label>
-    </div>
-    <%= f.select :artist_id ,options_for_select(
-        @artists.collect{ |a| [a.name, a.id] }, :selected => f.object.artist_id),{}, {class:"form-control custom-select"}%>
-    </div>
-
-    <div class="col-6 mx-auto">
-        <%= f.submit "Save changes", class:"btn btn-primary col-12 mt-1" %>
-
+            <%= f.text_field :title , class: "form-control"%>
+        </div>
+        <div class=" input-group mb-2 col-6 mx-auto">
+            <div class="input-group-prepend">
+                <label class="input-group-text" style="width:120px">Artist</label>
+            </div>
+            <%= f.select :artist_id ,options_for_select(
+                @artists.collect{ |a| [a.name, a.id] }, :selected => f.object.artist_id),{}, {class:"form-control custom-select"}%>
+            </div>
+            
+            <div class="col-6 mx-auto">
+                <%= f.submit "Save changes", class:"btn btn-primary col-12 mt-1" %>
+                
+            </div>
     </div>
     <% end %>
