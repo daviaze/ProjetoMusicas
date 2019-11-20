@@ -1,5 +1,6 @@
 <h3 class="text-center display-4 text-white"> All Albums </h3>
 
+<div class="container">
 <div class="row">
   <div class="form-group col-md-6 "> 
     <%=link_to "Create Album", new_album_path, class:"btn btn-primary col-6" %>
@@ -7,7 +8,10 @@
   <div class="form-group col-md-6 ">
     <%= form_tag("/albums", method: "get") do %>
       <div class="input-group mb-1 d-flex justify-content-end">
-
+        <div class="input-group-prepend">
+          <label class="input-group-text">Filter</label>
+        </div>
+        <%= text_field_tag(:title, params['title'], class: "form-control col-4") %>
         <div class="input-group-prepend">
           <%= submit_tag("Submit", class: 'btn btn-primary') %>
         </div>
@@ -23,5 +27,6 @@
     </div>
     <% end %>
   </div>
+</div>
 </div>
 
