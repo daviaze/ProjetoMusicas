@@ -1,3 +1,20 @@
+# Screenshots
+HomePage
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/HomePage.png)
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/HomePage2.png)
+
+Artist Albums
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/ArtistAlbums.png)
+
+Tracks of Album
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/TracksOfAlbum.png)
+
+Showing all Artists
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/allArtists.png)
+
+Searching Artist
+![](https://github.com/Luyny/Rails/blob/master/ReadMe%20Images/artistFilter.png)
+
 # Para Executar o Projecto na sua máquina
 
 Ter Instalado:
