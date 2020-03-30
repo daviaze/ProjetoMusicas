@@ -23,7 +23,7 @@ Ter Instalado:
 
 * Rails 5.1.6
 
-* git clone https://github.com/UniREDENTOR/Rails.git
+* git clone https://github.com/Luyny/Rails.git
 
 * cd Rails
 
